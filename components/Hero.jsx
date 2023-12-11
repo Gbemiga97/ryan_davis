@@ -43,7 +43,7 @@ const Hero = () => {
                     {/* socials */}
                     <div>
                         <Socials
-                        containerStyles='flex gap-x-6 mx-auto xl:mx-0'
+                        containerStyles='flex gap-x-6  justify-center xl:justify-start mx-auto xl:mx-0'
                         iconStyles='text-foreground text-[22px] hover:text-primary transition-all'
                          />
                     </div>
