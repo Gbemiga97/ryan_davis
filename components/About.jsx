@@ -1,6 +1,6 @@
 import DevImg from "./DevImg"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
-
+import Image from "next/image"
 import { User2, MailIcon, HomeIcon, PhoneCall, GraduationCap, Calendar, Briefcase } from "lucide-react"
 
 
@@ -77,7 +77,7 @@ const qualificationData = [
 const skillsData = [
     {
         title: 'skills',
-        date: [
+        data: [
             {
                 name: 'HTML, CSS'
             },
@@ -94,7 +94,7 @@ const skillsData = [
     },
     {
         title: 'tools',
-        date: [
+        data: [
             {
                 imgPath: '/about/vscode.svg'
             },
@@ -255,7 +255,49 @@ const About = () => {
                                     </div>
                                 </TabsContent>
                                 <TabsContent value='skills'>
-                                    Skills info
+                                    <div className="text-center xl:text-left">
+                                        <h3 className="h3 mb-8">
+                                            What I Use Everyday</h3>
+                                            {/* skills */}
+                                            <div className="mb-16">
+                                                <h4 className="text-xl font-semibold mb-2">
+                                                    Skills</h4>
+                                                    <div className="border-b border-border mb-4"/>
+                                                    {/* skills list */}
+                                                    <div>
+                                                        {
+                                                            getData(skillsData, 'skills').data.map(({name}, i) => (
+                                                                <div key={i} className="w-2/4 text-center xl:text-left mx-auto xl:mx-0">
+                                                                     <p className="font-medium">
+                                                                        {name}</p>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                            </div>
+                                            {/* tools */}
+                                            <div>
+                                                <h4 className="text-xl font-semibold mb-2 xl:text-left">
+                                                    Tools</h4>
+                                                    <div className="border-b border-border mb-4"/>
+                                                   {/* tool list */}
+                                                    <div className="flex gap-x-8 justify-center xl:justify-start">
+                                                        {
+                                                            getData(skillsData, 'tools').data.map(({imgPath}, i) => (
+                                                                <div key={i}>
+                                                                    <Image 
+                                                                    src={imgPath}
+                                                                    width={48}
+                                                                    height={48}
+                                                                    alt=''
+                                                                    priority
+                                                                    />
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                            </div>
+                                    </div>
                                 </TabsContent>
                             </div>
                         </Tabs>
